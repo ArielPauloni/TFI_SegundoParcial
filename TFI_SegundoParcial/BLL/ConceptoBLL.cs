@@ -10,10 +10,10 @@ namespace BLL
 {
     public class ConceptoBLL
     {
-        public int Insertar(ConceptoBE Concepto)
+        public int Insertar(ConceptoBE concepto)
         {
             ConceptoMapper m = new ConceptoMapper();
-            return m.Insertar(Concepto);
+            return m.Insertar(concepto);
         }
 
         public List<ConceptoBE> Listar()
@@ -22,10 +22,10 @@ namespace BLL
             return m.Listar();
         }
 
-        public int ActualizarConcepto(ConceptoBE Concepto)
+        public int ActualizarConcepto(ConceptoBE concepto)
         {
             ConceptoMapper m = new ConceptoMapper();
-            return m.Actualizar(Concepto);
+            return m.Actualizar(concepto);
         }
 
     }

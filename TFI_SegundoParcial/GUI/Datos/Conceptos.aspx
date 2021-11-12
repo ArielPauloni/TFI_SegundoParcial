@@ -6,7 +6,7 @@
     <br />
     <br />
     <div class="form-group col-md-12">
-        <asp:GridView ID="grvConcepto" runat="server" AllowSorting="True" Caption="Conceptos"
+        <asp:GridView ID="grvConcepto" runat="server" AllowSorting="True" Caption="Conceptos de Recibo"
             AutoGenerateColumns="False" AllowPaging="True" DataKeyNames="codigoConcepto" PageSize="15" EnableTheming="True"
             OnPageIndexChanging="grvConcepto_PageIndexChanging" OnRowCancelingEdit="grvConcepto_RowCancelingEdit"
             OnRowEditing="grvConcepto_RowEditing" OnRowUpdating="grvConcepto_RowUpdating" OnRowDataBound="grvConcepto_RowDataBound">

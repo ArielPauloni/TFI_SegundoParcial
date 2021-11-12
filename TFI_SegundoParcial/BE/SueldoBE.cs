@@ -16,9 +16,9 @@ namespace BE
             set { codigoSueldo = value; }
         }
 
-        private string categoria;
+        private CategoriaBE categoria;
 
-        public string Categoria
+        public CategoriaBE Categoria
         {
             get { return categoria; }
             set { categoria = value; }
@@ -38,6 +38,11 @@ namespace BE
         {
             get { return sueldoBase; }
             set { sueldoBase = value; }
+        }
+
+        public override string ToString()
+        {
+            return Puesto + " (" + Categoria.DescripcionCategoria + ")";
         }
     }
 }

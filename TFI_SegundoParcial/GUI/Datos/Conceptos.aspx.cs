@@ -69,7 +69,7 @@ namespace GUI.Datos
                 ConceptoBE concepto = new ConceptoBE();
                 concepto.CodigoConcepto = int.Parse(id.Text);
                 concepto.DescripcionConcepto = txtDescripcionConcepto.Text;
-                concepto.Porcentaje = int.Parse(txtPorcentaje.Text);
+                concepto.Porcentaje = porcentaje;
                 concepto.EsDescuento = chkEsDescuento.Checked;
                 concepto.Activo = chkActivo.Checked;
 
