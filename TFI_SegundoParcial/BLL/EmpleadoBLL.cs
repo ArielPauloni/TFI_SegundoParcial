@@ -10,5 +10,22 @@ namespace BLL
 {
     public class EmpleadoBLL
     {
+        public int Insertar(EmpleadoBE empleado)
+        {
+            EmpleadoMapper m = new EmpleadoMapper();
+            return m.Insertar(empleado);
+        }
+
+        public List<EmpleadoBE> Listar()
+        {
+            EmpleadoMapper m = new EmpleadoMapper();
+            return m.Listar();
+        }
+
+        public int ActualizarEmpleado(EmpleadoBE empleado)
+        {
+            EmpleadoMapper m = new EmpleadoMapper();
+            return m.Actualizar(empleado);
+        }
     }
 }

@@ -131,6 +131,7 @@
     <Content Include="Datos\NuevoConcepto.aspx" />
     <Content Include="Datos\NuevoEmpleado.aspx" />
     <Content Include="Datos\NuevoSueldo.aspx" />
+    <Content Include="Datos\Recibos.aspx" />
     <Content Include="Datos\Sueldos.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -252,6 +253,13 @@
     </Compile>
     <Compile Include="Datos\NuevoSueldo.aspx.designer.cs">
       <DependentUpon>NuevoSueldo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\Recibos.aspx.cs">
+      <DependentUpon>Recibos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Datos\Recibos.aspx.designer.cs">
+      <DependentUpon>Recibos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Datos\Sueldos.aspx.cs">
       <DependentUpon>Sueldos.aspx</DependentUpon>

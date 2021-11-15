@@ -10,25 +10,7 @@
 namespace GUI.Datos {
     
     
-    public partial class Empleados {
-        
-        /// <summary>
-        /// Control grvEmpleado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvEmpleado;
-        
-        /// <summary>
-        /// Control btnCrearNuevoEmpleado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCrearNuevoEmpleado;
+    public partial class Recibos {
         
         /// <summary>
         /// Control UpPanelDialog.

@@ -32,13 +32,22 @@ namespace BE
             set { nombre = value; }
         }
 
-        private DateTime fechaIngreso;
+        private DateTime? fechaIngreso;
 
-        public DateTime FechaIngreso
+        public DateTime? FechaIngreso
         {
             get { return fechaIngreso; }
             set { fechaIngreso = value; }
         }
+
+        private SueldoBE sueldo;
+
+        public SueldoBE Sueldo
+        {
+            get { return sueldo; }
+            set { sueldo = value; }
+        }
+
 
         private List<ReciboBE> recibos;
 
