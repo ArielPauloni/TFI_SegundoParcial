@@ -11,6 +11,8 @@ namespace DAL
 {
     public class EmpleadoMapper
     {
+        private ReciboDetalleMapper reciboDetalleMapper = new ReciboDetalleMapper();
+
         public List<EmpleadoBE> Listar()
         {
             List<EmpleadoBE> listaEmpleados = new List<EmpleadoBE>();
@@ -44,6 +46,49 @@ namespace DAL
             return listaEmpleados;
         }
 
+        public List<EmpleadoReciboBE> ListarEmpleadosRecibos()
+        {
+            List<EmpleadoReciboBE> listaEmpleadosRecibos = new List<EmpleadoReciboBE>();
+            AccesoSQL AccesoSQL = new AccesoSQL();
+            DataTable tabla = AccesoSQL.Leer("pr_Listar_EmpleadosRecibos", null);
+            if (tabla != null)
+            {
+                foreach (DataRow fila in tabla.Rows)
+                {
+                    EmpleadoReciboBE empRecibo = new EmpleadoReciboBE();
+                    EmpleadoBE empleado = new EmpleadoBE();
+                    SueldoBE sueldo = new SueldoBE();
+                    CategoriaBE categoria = new CategoriaBE();
+                    ReciboBE recibo = new ReciboBE();
+
+                    categoria.CodigoCategoria = int.Parse(fila["CodigoCategoria"].ToString());
+                    categoria.DescripcionCategoria = fila["DescripcionCategoria"].ToString();
+                    sueldo.Categoria = categoria;
+                    sueldo.CodigoSueldo = int.Parse(fila["CodigoSueldo"].ToString());
+                    sueldo.Puesto = fila["Puesto"].ToString();
+                    sueldo.SueldoBase = float.Parse(fila["SueldoBase"].ToString());
+
+                    empleado.Legajo = int.Parse(fila["Legajo"].ToString());
+                    empleado.Apellido = fila["Apellido"].ToString();
+                    empleado.Nombre = fila["Nombre"].ToString();
+                    empleado.FechaIngreso = (DateTime)fila["FechaIngreso"];
+                    empleado.Sueldo = sueldo;
+                    //empleado.Activo = (Boolean)(fila["Activo"]);
+
+                    recibo.CodigoRecibo = int.Parse(fila["CodigoRecibo"].ToString());
+                    recibo.Anio = int.Parse(fila["Anio"].ToString());
+                    recibo.Mes = int.Parse(fila["Mes"].ToString());
+                    recibo.MontoTotal = float.Parse(fila["MontoTotal"].ToString());
+                    recibo.ReciboDetalles = reciboDetalleMapper.ListarReciboDetalle(recibo);
+
+                    empRecibo.Empleado = empleado;
+                    empRecibo.Recibo = recibo;
+                    listaEmpleadosRecibos.Add(empRecibo);
+                }
+            }
+            return listaEmpleadosRecibos;
+        }
+        
         public int Insertar(EmpleadoBE empleado)
         {
             AccesoSQL AccesoSQL = new AccesoSQL();

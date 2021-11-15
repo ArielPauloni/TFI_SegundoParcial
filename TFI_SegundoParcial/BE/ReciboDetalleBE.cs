@@ -16,14 +16,13 @@ namespace BE
             set { concepto = value; }
         }
 
-        private float montoParcial;
+        private double montoParcial;
 
-        public float MontoParcial
+        public double MontoParcial
         {
             get { return montoParcial; }
             set { montoParcial = value; }
         }
-
 
     }
 }

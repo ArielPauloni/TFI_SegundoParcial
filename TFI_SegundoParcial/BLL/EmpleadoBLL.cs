@@ -22,6 +22,12 @@ namespace BLL
             return m.Listar();
         }
 
+        public List<EmpleadoReciboBE> ListarEmpleadosRecibos()
+        {
+            EmpleadoMapper m = new EmpleadoMapper();
+            return m.ListarEmpleadosRecibos();
+        }
+
         public int ActualizarEmpleado(EmpleadoBE empleado)
         {
             EmpleadoMapper m = new EmpleadoMapper();

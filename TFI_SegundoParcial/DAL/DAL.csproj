@@ -45,6 +45,8 @@
     <Compile Include="AccesoSQL.cs" />
     <Compile Include="ConceptoMapper.cs" />
     <Compile Include="EmpleadoMapper.cs" />
+    <Compile Include="ReciboDetalleMapper.cs" />
+    <Compile Include="ReciboMapper.cs" />
     <Compile Include="SueldoMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
