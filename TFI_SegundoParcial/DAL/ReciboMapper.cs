@@ -69,5 +69,50 @@ namespace DAL
             parametros.Add(AccesoSQL.CrearParametroInt("CodigoRecibo", recibo.CodigoRecibo));
             return AccesoSQL.Escribir("pr_Eliminar_Recibo", parametros);
         }
+
+        public EmpleadoReciboBE ObtenerEmpleadoRecibo(ReciboBE recibo)
+        {
+            AccesoSQL AccesoSQL = new AccesoSQL();
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(AccesoSQL.CrearParametroInt("CodigoRecibo", recibo.CodigoRecibo));
+            DataTable tabla = AccesoSQL.Leer("pr_Listar_Recibo", parametros);
+            if (tabla != null)
+            {
+                foreach (DataRow fila in tabla.Rows)
+                {
+                    EmpleadoReciboBE empRecibo = new EmpleadoReciboBE();
+                    EmpleadoBE empleado = new EmpleadoBE();
+                    SueldoBE sueldo = new SueldoBE();
+                    CategoriaBE categoria = new CategoriaBE();
+                    ReciboBE rec = new ReciboBE();
+
+                    categoria.CodigoCategoria = int.Parse(fila["CodigoCategoria"].ToString());
+                    categoria.DescripcionCategoria = fila["DescripcionCategoria"].ToString();
+                    sueldo.Categoria = categoria;
+                    sueldo.CodigoSueldo = int.Parse(fila["CodigoSueldo"].ToString());
+                    sueldo.Puesto = fila["Puesto"].ToString();
+                    sueldo.SueldoBase = float.Parse(fila["SueldoBase"].ToString());
+
+                    empleado.Legajo = int.Parse(fila["Legajo"].ToString());
+                    empleado.Apellido = fila["Apellido"].ToString();
+                    empleado.Nombre = fila["Nombre"].ToString();
+                    empleado.FechaIngreso = (DateTime)fila["FechaIngreso"];
+                    empleado.Sueldo = sueldo;
+                    //empleado.Activo = (Boolean)(fila["Activo"]);
+
+                    rec.CodigoRecibo = int.Parse(fila["CodigoRecibo"].ToString());
+                    rec.Anio = int.Parse(fila["Anio"].ToString());
+                    rec.Mes = int.Parse(fila["Mes"].ToString());
+                    rec.MontoTotal = float.Parse(fila["MontoTotal"].ToString());
+                    rec.ReciboDetalles = reciboDetalleMapper.ListarReciboDetalle(rec);
+
+                    empRecibo.Empleado = empleado;
+                    empRecibo.Recibo = rec;
+
+                    return empRecibo;
+                }
+            }
+            return null;
+        }
     }
 }

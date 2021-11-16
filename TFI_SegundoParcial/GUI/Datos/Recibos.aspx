@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Recibos.aspx.cs" Inherits="GUI.Datos.Recibos" MasterPageFile="~/Site.Master"
-     UICulture="es" Culture="es-AR" %>
+    UICulture="es" Culture="es-AR" %>
 
 <%@ Register Src="~/User_Controls/UC_MensajeModal.ascx" TagPrefix="uc1" TagName="UC_MensajeModal" %>
 
@@ -7,34 +7,52 @@
     <br />
     <br />
 
-    <div id="divFiltros" runat="server" class="form-group col-md-12 bg-info">
-        <asp:Label ID="lblEmpleado" runat="server" Text="Empleado: "></asp:Label>
-        <asp:DropDownList ID="ddlEmpleados" runat="server"></asp:DropDownList>
-        <asp:Label ID="lblAnioDesde" runat="server" Text="Desde Año: "></asp:Label>
-        <asp:DropDownList ID="ddlAnioDesde" runat="server"></asp:DropDownList>
-        <asp:Label ID="lblAnioHasta" runat="server" Text="Hasta Año: "></asp:Label>
-        <asp:DropDownList ID="ddlAnioHasta" runat="server"></asp:DropDownList>
-        <asp:Label ID="lblMesDesde" runat="server" Text="Desde Mes: "></asp:Label>
-        <asp:DropDownList ID="ddlMesDesde" runat="server"></asp:DropDownList>
-        <asp:Label ID="lblMesHasta" runat="server" Text="Hasta Mes: "></asp:Label>
-        <asp:DropDownList ID="ddlMesHasta" runat="server"></asp:DropDownList>
-        <asp:Label ID="lblSueldo" runat="server" Text="Puesto (Categoría): "></asp:Label>
-        <asp:DropDownList ID="ddlSueldo" runat="server"></asp:DropDownList>
-        <button id="btnFiltrar" runat="server" class="btn btn-info btn-sm fa fa-filter" title="Filtrar" onserverclick="btnFiltrar_ServerClick"></button>
-        <button id="btnLimpiarFiltros" runat="server" class="btn btn-info btn-sm fa fa-undo" title="Limpiar Filtros" onserverclick="btnLimpiarFiltros_ServerClick"></button>
+    <div class="container ">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <asp:Label ID="lblEmpleado" runat="server" Text="Empleado: "></asp:Label>
+                <asp:DropDownList ID="ddlEmpleados" runat="server"></asp:DropDownList>
+            </div>
+            <div class="form-group col-md-4">
+                <asp:Label ID="lblAnioDesde" runat="server" Text="Desde Año: "></asp:Label>
+                <asp:DropDownList ID="ddlAnioDesde" runat="server"></asp:DropDownList>
+            </div>
+            <div class="form-group col-md-4">
+                <asp:Label ID="lblAnioHasta" runat="server" Text="Hasta Año: "></asp:Label>
+                <asp:DropDownList ID="ddlAnioHasta" runat="server"></asp:DropDownList>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <asp:Label ID="lblMesDesde" runat="server" Text="Desde Mes: "></asp:Label>
+                <asp:DropDownList ID="ddlMesDesde" runat="server"></asp:DropDownList>
+            </div>
+            <div class="form-group col-md-4">
+                <asp:Label ID="lblMesHasta" runat="server" Text="Hasta Mes: "></asp:Label>
+                <asp:DropDownList ID="ddlMesHasta" runat="server"></asp:DropDownList>
+            </div>
+            <div class="form-group col-md-4">
+                <asp:Label ID="lblSueldo" runat="server" Text="Puesto (Categoría): "></asp:Label>
+                <asp:DropDownList ID="ddlSueldo" runat="server"></asp:DropDownList>
+            </div>
+        </div>
+        <div class="form-row">
+            <button id="btnFiltrar" runat="server" class="btn btn-info btn-sm fa fa-filter" title="Filtrar" onserverclick="btnFiltrar_ServerClick"></button>
+            <button id="btnLimpiarFiltros" runat="server" class="btn btn-info btn-sm fa fa-undo" title="Limpiar Filtros" onserverclick="btnLimpiarFiltros_ServerClick"></button>
+        </div>
     </div>
 
     <div class="form-group col-md-12">
-        <asp:Panel runat="server" ScrollBars="Vertical" Height="400px">
+        <asp:Panel runat="server" ScrollBars="Vertical" Height="300px">
             <asp:GridView ID="grvEmpleadosRecibos" runat="server" AllowSorting="true" Caption="Recibos"
                 AutoGenerateColumns="False" EnableTheming="true" OnRowDataBound="grvEmpleadosRecibos_RowDataBound"
-                OnSorting="grvEmpleadosRecibos_Sorting" >
+                OnSorting="grvEmpleadosRecibos_Sorting">
                 <AlternatingRowStyle BackColor="#CCFFFF" />
                 <Columns>
-                    <asp:BoundField DataField="Empleado" HeaderText="Empleado" SortExpression="Empleado">
+                    <asp:BoundField DataField="Empleado" HeaderText="Empleado">
                         <HeaderStyle CssClass="th" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="Empleado.Sueldo" HeaderText="Puesto (Categoría)" SortExpression="Empleado.Sueldo">
+                    <asp:BoundField DataField="Empleado.Sueldo" HeaderText="Puesto (Categoría)">
                         <HeaderStyle CssClass="th" />
                     </asp:BoundField>
                     <asp:BoundField DataField="Recibo.Anio" HeaderText="Año" SortExpression="Recibo.Anio">
@@ -46,13 +64,20 @@
                     <asp:BoundField DataField="Recibo.MontoTotal" HeaderText="Monto total percibido" DataFormatString="{0:C}" ItemStyle-HorizontalAlign="Center" SortExpression="Recibo.MontoTotal">
                         <HeaderStyle CssClass="th" />
                     </asp:BoundField>
+                    <asp:BoundField DataField="Recibo.CodigoRecibo" ItemStyle-CssClass="hidden" HeaderStyle-CssClass="hidden"></asp:BoundField>
+                    <asp:TemplateField HeaderText="Acción">
+                        <ItemTemplate>
+                            <asp:LinkButton runat="server" ID="btnVerRecibo" class="btn btn-mini" ToolTip="Ver Detalle" OnClick="btnVerRecibo_Click"><i class="fa fa-search-plus" aria-hidden="true"></i>
+                            </asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </asp:Panel>
         <hr />
     </div>
 
-     <div class="form-group col-md-12">
+    <div class="form-group col-md-12">
         <br />
         <asp:Button ID="btnCrearNuevoRecibo" CssClass="btn btn-primary" runat="server" Text="Crear Nuevo Recibo" OnClick="btnCrearNuevoRecibo_Click" />
     </div>

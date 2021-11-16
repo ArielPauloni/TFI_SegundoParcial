@@ -5,7 +5,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <br />
-    <div class="container">
+    <div class="form-group col-md-12 bg-info">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <asp:Label ID="lblCategoria" runat="server" Text="Categoría"></asp:Label>

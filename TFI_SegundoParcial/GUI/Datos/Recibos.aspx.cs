@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,17 +14,17 @@ namespace GUI.Datos
     {
         private EmpleadoBLL gestorEmpleado = new EmpleadoBLL();
 
-        private string sortDirByEmpleado
-        {
-            get { return ViewState["sortDirByEmpleado"] != null ? ViewState["sortDirByEmpleado"].ToString() : "DESC"; }
-            set { ViewState["sortDirByEmpleado"] = value; }
-        }
+        //private string sortDirByEmpleado
+        //{
+        //    get { return ViewState["sortDirByEmpleado"] != null ? ViewState["sortDirByEmpleado"].ToString() : "DESC"; }
+        //    set { ViewState["sortDirByEmpleado"] = value; }
+        //}
 
-        private string sortDirByPuesto
-        {
-            get { return ViewState["sortDirByPuesto"] != null ? ViewState["sortDirByPuesto"].ToString() : "DESC"; }
-            set { ViewState["sortDirByPuesto"] = value; }
-        }
+        //private string sortDirByPuesto
+        //{
+        //    get { return ViewState["sortDirByPuesto"] != null ? ViewState["sortDirByPuesto"].ToString() : "DESC"; }
+        //    set { ViewState["sortDirByPuesto"] = value; }
+        //}
 
         private string sortDirByAnio
         {
@@ -91,7 +92,7 @@ namespace GUI.Datos
                 {
                     filtradosPorAnioDesde =
                         from EmpleadoReciboBE empRec in filtradosPorPuesto
-                        where string.Compare(empRec.Recibo.Anio.ToString(), filtros[2].ToString()) >=0
+                        where string.Compare(empRec.Recibo.Anio.ToString(), filtros[2].ToString()) >= 0
                         select empRec;
                 }
                 else { filtradosPorAnioDesde = filtradosPorPuesto; }
@@ -133,19 +134,23 @@ namespace GUI.Datos
 
             if (!string.IsNullOrWhiteSpace(orderBy))
             {
-                if (string.Compare("Empleado", orderBy, true) == 0)
-                {
-                    if (string.Compare("ASC", this.sortDirByEmpleado, true) == 0)
-                    { datos = datos.OrderBy(r => r.Empleado).ToList(); }
-                    else { datos = datos.OrderByDescending(r => r.Empleado).ToList(); }
-                }
+                //try
+                //{
+                //    if (string.Compare("Empleado", orderBy, true) == 0)
+                //    {
+                //        if (string.Compare("ASC", this.sortDirByEmpleado, true) == 0)
+                //        { datos = datos.OrderBy(r => r.Empleado).ToList(); }
+                //        else { datos = datos.OrderByDescending(r => r.Empleado).ToList(); }
+                //    }
 
-                if (string.Compare("Empleado.Sueldo", orderBy, true) == 0)
-                {
-                    if (string.Compare("ASC", this.sortDirByPuesto, true) == 0)
-                    { datos = datos.OrderBy(r => r.Empleado.Sueldo).ToList(); }
-                    else { datos = datos.OrderByDescending(r => r.Empleado.Sueldo).ToList(); }
-                }
+                //    if (string.Compare("Empleado.Sueldo", orderBy, true) == 0)
+                //    {
+                //        if (string.Compare("ASC", this.sortDirByPuesto, true) == 0)
+                //        { datos = datos.OrderBy(r => r.Empleado.Sueldo).ToList(); }
+                //        else { datos = datos.OrderByDescending(r => r.Empleado.Sueldo).ToList(); }
+                //    }
+                //}
+                //catch (Exception ex) { }
 
                 if (string.Compare("Recibo.Anio", orderBy, true) == 0)
                 {
@@ -197,7 +202,7 @@ namespace GUI.Datos
             var meses = datos.Select(o => o.Recibo.Mes.ToString()).Distinct().OrderBy(Mes => Mes).ToList();
             List<string> mesesStr = new List<string>();
             mesesStr.Add(string.Empty);
-            foreach (string mes in meses) { mesesStr.Add(mes); }
+            foreach (string mes in meses) { mesesStr.Add(mes.ToString()); }
             ddlMesDesde.DataSource = mesesStr;
             ddlMesDesde.DataBind();
             if (ddlMesDesde.Items.Count == 2) { ddlMesDesde.SelectedIndex = 1; }
@@ -218,11 +223,11 @@ namespace GUI.Datos
         {
             if (e.Row.RowType == DataControlRowType.Header)
             {
-                LinkButton btnSort = (LinkButton)e.Row.Cells[0].Controls[0];
-                btnSort.Text = "Empleado";
-                btnSort = (LinkButton)e.Row.Cells[1].Controls[0];
-                btnSort.Text = "Puesto (Categoría)";
-                btnSort = (LinkButton)e.Row.Cells[2].Controls[0];
+                LinkButton btnSort = (LinkButton)e.Row.Cells[2].Controls[0];
+                //btnSort.Text = "Empleado";
+                //btnSort = (LinkButton)e.Row.Cells[1].Controls[0];
+                //btnSort.Text = "Puesto (Categoría)";
+                //btnSort = (LinkButton)e.Row.Cells[2].Controls[0];
                 btnSort.Text = "Año";
                 btnSort = (LinkButton)e.Row.Cells[3].Controls[0];
                 btnSort.Text = "Mes";
@@ -246,11 +251,11 @@ namespace GUI.Datos
             filtros.Add(ddlMesDesde.SelectedItem.ToString());
             filtros.Add(ddlMesHasta.SelectedItem.ToString());
 
-            if (string.Compare("Empleado", e.SortExpression, true) == 0)
-            { this.sortDirByEmpleado = this.sortDirByEmpleado == "ASC" ? "DESC" : "ASC"; }
+            //if (string.Compare("Empleado", e.SortExpression, true) == 0)
+            //{ this.sortDirByEmpleado = this.sortDirByEmpleado == "ASC" ? "DESC" : "ASC"; }
 
-            if (string.Compare("Empleado.Sueldo", e.SortExpression, true) == 0)
-            { this.sortDirByPuesto = this.sortDirByPuesto == "ASC" ? "DESC" : "ASC"; }
+            //if (string.Compare("Empleado.Sueldo", e.SortExpression, true) == 0)
+            //{ this.sortDirByPuesto = this.sortDirByPuesto == "ASC" ? "DESC" : "ASC"; }
 
             if (string.Compare("Recibo.Anio", e.SortExpression, true) == 0)
             { this.sortDirByAnio = this.sortDirByAnio == "ASC" ? "DESC" : "ASC"; ; }
@@ -281,6 +286,14 @@ namespace GUI.Datos
             filtros.Add(ddlMesHasta.SelectedItem.ToString());
 
             EnlazarGrillaEmpleadosRecibos(filtros, string.Empty);
+        }
+
+        protected void btnVerRecibo_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = (LinkButton)sender;
+            GridViewRow grv = (GridViewRow)btn.NamingContainer;
+
+            Response.Redirect("~/Datos/VerReciboDetalle.aspx?CodigoRecibo=" + grvEmpleadosRecibos.Rows[grv.RowIndex].Cells[5].Text);
         }
     }
 }

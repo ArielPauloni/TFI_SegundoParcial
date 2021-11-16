@@ -33,5 +33,11 @@ namespace BLL
             EmpleadoMapper m = new EmpleadoMapper();
             return m.Actualizar(empleado);
         }
+
+        public EmpleadoReciboBE ObtenerEmpleadoRecibo(ReciboBE recibo)
+        {
+            ReciboMapper m = new ReciboMapper();
+            return m.ObtenerEmpleadoRecibo(recibo);
+        }
     }
 }
