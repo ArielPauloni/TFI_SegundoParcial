@@ -203,8 +203,10 @@
     <Content Include="Content\svg-with-js.min.css" />
     <Content Include="Content\v4-shims.css" />
     <Content Include="Content\v4-shims.min.css" />
+    <Content Include="Datos\Categorias.aspx" />
     <Content Include="Datos\Conceptos.aspx" />
     <Content Include="Datos\Empleados.aspx" />
+    <Content Include="Datos\NuevaCategoria.aspx" />
     <Content Include="Datos\NuevoConcepto.aspx" />
     <Content Include="Datos\NuevoEmpleado.aspx" />
     <Content Include="Datos\NuevoRecibo.aspx" />
@@ -299,6 +301,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Datos\Categorias.aspx.cs">
+      <DependentUpon>Categorias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Datos\Categorias.aspx.designer.cs">
+      <DependentUpon>Categorias.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Datos\Conceptos.aspx.cs">
       <DependentUpon>Conceptos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -312,6 +321,13 @@
     </Compile>
     <Compile Include="Datos\Empleados.aspx.designer.cs">
       <DependentUpon>Empleados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\NuevaCategoria.aspx.cs">
+      <DependentUpon>NuevaCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Datos\NuevaCategoria.aspx.designer.cs">
+      <DependentUpon>NuevaCategoria.aspx</DependentUpon>
     </Compile>
     <Compile Include="Datos\NuevoConcepto.aspx.cs">
       <DependentUpon>NuevoConcepto.aspx</DependentUpon>

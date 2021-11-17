@@ -12,6 +12,7 @@ namespace GUI.Datos
     public partial class Sueldos : System.Web.UI.Page
     {
         private SueldoBLL gestorSueldo = new SueldoBLL();
+        private CategoriaBLL gestorCategoria = new CategoriaBLL();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -115,7 +116,7 @@ namespace GUI.Datos
             if ((e.Row.RowState & DataControlRowState.Edit) == DataControlRowState.Edit)
             {
                 DropDownList ddlCategoria = (e.Row.FindControl("ddl_Categoria") as DropDownList);
-                ddlCategoria.DataSource = gestorSueldo.ListarCategorias();
+                ddlCategoria.DataSource = gestorCategoria.ListarCategorias();
                 ddlCategoria.DataTextField = "DescripcionCategoria";
                 ddlCategoria.DataValueField = "CodigoCategoria";
                 ddlCategoria.DataBind();

@@ -84,9 +84,10 @@ namespace GUI.Datos
         private string SetearDatos(EmpleadoBE emp)
         {
             string retStr = "Legajo: " + emp.Legajo.ToString().PadLeft(6, '0') + "\r\n";
-            retStr += "Apellido, Nombre: " + emp.Apellido + ", " + emp.Nombre + "\r\n";
+            retStr += "Apellido y Nombre: " + emp.Apellido + ", " + emp.Nombre + "\r\n";
             retStr += "Puesto: " + emp.Sueldo.Puesto + "\r\n";
             retStr += "Categoría: " + emp.Sueldo.Categoria.DescripcionCategoria + "\r\n";
+            retStr += "Fecha de Ingreso: " + emp.FechaIngreso.Value.ToString("dd-MM-yyyy") + "\r\n";
             retStr += "Detalle:" + "\r\n";
 
             return retStr;

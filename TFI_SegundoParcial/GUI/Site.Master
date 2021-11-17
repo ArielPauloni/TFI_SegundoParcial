@@ -66,6 +66,8 @@
                                 <li><a id="aSueldos" class="fa fa-money" runat="server" href="~/Datos/Sueldos.aspx"> Sueldos por categoría/puesto</a></li>
                                 <li><a id="aEmpleados" class="fa fa-users" runat="server" href="~/Datos/Empleados.aspx"> Empleados</a></li>
                                 <li><a id="aConceptos" class="fa fa-asterisk" runat="server" href="~/Datos/Conceptos.aspx"> Conceptos de Recibo</a></li>
+                                <li><a id="aCategoria" class="fa fa-sitemap" runat="server" href="~/Datos/Categorias.aspx"> Categorías</a></li>
+                            
                             </ul>
                         </li>
                         <li><a id="aRecibos" class="fa fa-money" runat="server" href="~/Datos/Recibos.aspx"> Recibos</a></li>

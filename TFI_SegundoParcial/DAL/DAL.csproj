@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoSQL.cs" />
+    <Compile Include="CategoriaMapper.cs" />
     <Compile Include="ConceptoMapper.cs" />
     <Compile Include="EmpleadoMapper.cs" />
     <Compile Include="ReciboDetalleMapper.cs" />

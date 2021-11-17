@@ -7,72 +7,63 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace GUI {
+namespace GUI.Datos {
     
     
-    public partial class SiteMaster {
+    public partial class NuevaCategoria {
         
         /// <summary>
-        /// Control aDatos.
+        /// Control lblDescripcionCategoria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aDatos;
+        protected global::System.Web.UI.WebControls.Label lblDescripcionCategoria;
         
         /// <summary>
-        /// Control aSueldos.
+        /// Control txtCategoria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aSueldos;
+        protected global::System.Web.UI.WebControls.TextBox txtCategoria;
         
         /// <summary>
-        /// Control aEmpleados.
+        /// Control btnGrabar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aEmpleados;
+        protected global::System.Web.UI.WebControls.Button btnGrabar;
         
         /// <summary>
-        /// Control aConceptos.
+        /// Control btnCancelar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aConceptos;
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
         
         /// <summary>
-        /// Control aCategoria.
+        /// Control UpPanelDialog.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aCategoria;
+        protected global::System.Web.UI.UpdatePanel UpPanelDialog;
         
         /// <summary>
-        /// Control aRecibos.
+        /// Control UC_MensajeModal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor aRecibos;
-        
-        /// <summary>
-        /// Control MainContent.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::GUI.User_Controls.UC_MensajeModal UC_MensajeModal;
     }
 }

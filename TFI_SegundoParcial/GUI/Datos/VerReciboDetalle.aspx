@@ -7,7 +7,7 @@
     <br />
     <br />
     <div class="form-group col-md-12">
-        <asp:TextBox ID="DatosEmpleado" runat="server" TextMode="MultiLine" Enabled="false" Style="resize: none; overflow: hidden" Height="125px" Width="300px"></asp:TextBox>
+        <asp:TextBox ID="DatosEmpleado" runat="server" TextMode="MultiLine" Enabled="false" Style="resize: none; overflow: hidden" Height="145px" Width="300px"></asp:TextBox>
     </div>
 
     <div class="form-group col-md-12">

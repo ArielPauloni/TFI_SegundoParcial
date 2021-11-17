@@ -12,12 +12,13 @@ namespace GUI.Datos
     public partial class NuevoSueldo : System.Web.UI.Page
     {
         private SueldoBLL gestorSueldos = new SueldoBLL();
+        private CategoriaBLL gestorCategorias = new CategoriaBLL();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                ddlCategoria.DataSource = gestorSueldos.ListarCategorias();
+                ddlCategoria.DataSource = gestorCategorias.ListarCategorias();
                 ddlCategoria.DataTextField = "DescripcionCategoria";
                 ddlCategoria.DataValueField = "CodigoCategoria";
                 ddlCategoria.DataBind();

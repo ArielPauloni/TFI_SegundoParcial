@@ -21,25 +21,6 @@ namespace DAL
             return AccesoSQL.Escribir("pr_Insertar_Sueldo", parametros);
         }
 
-        public List<CategoriaBE> ListarCategorias()
-        {
-            List<CategoriaBE> listaCategorias = new List<CategoriaBE>();
-            AccesoSQL AccesoSQL = new AccesoSQL();
-            DataTable tabla = AccesoSQL.Leer("pr_Listar_Categorias", null);
-            if (tabla != null)
-            {
-                foreach (DataRow fila in tabla.Rows)
-                {
-                    CategoriaBE categoria = new CategoriaBE();
-                    categoria.CodigoCategoria = int.Parse(fila["CodigoCategoria"].ToString());
-                    categoria.DescripcionCategoria = fila["DescripcionCategoria"].ToString();
-
-                    listaCategorias.Add(categoria);
-                }
-            }
-            return listaCategorias;
-        }
-
         public int Actualizar(SueldoBE sueldo)
         {
             AccesoSQL AccesoSQL = new AccesoSQL();

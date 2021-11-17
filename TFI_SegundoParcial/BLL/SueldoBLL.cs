@@ -22,12 +22,6 @@ namespace BLL
             return m.Listar();
         }
 
-        public List<CategoriaBE> ListarCategorias()
-        {
-            SueldoMapper m = new SueldoMapper();
-            return m.ListarCategorias();
-        }
-
         public int ActualizarSueldo(SueldoBE sueldo)
         {
             SueldoMapper m = new SueldoMapper();

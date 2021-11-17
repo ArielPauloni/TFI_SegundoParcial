@@ -1,6 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NuevoRecibo.aspx.cs" Inherits="GUI.Datos.NuevoRecibo" MasterPageFile="~/Site.Master"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NuevaCategoria.aspx.cs" Inherits="GUI.Datos.NuevaCategoria" MasterPageFile="~/Site.Master" %>
 
 <%@ Register Src="~/User_Controls/UC_MensajeModal.ascx" TagPrefix="uc1" TagName="UC_MensajeModal" %>
+
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <br />
@@ -8,19 +9,10 @@
     <div class="container">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <asp:Label ID="lblEmpleado" runat="server" Text="Empleado"></asp:Label>
-                <asp:DropDownList ID="ddlEmpleado" CssClass="form-control" runat="server"></asp:DropDownList>
-            </div>
-            <div class="form-group col-md-3">
-                <asp:Label ID="lblMes" runat="server" Text="Mes"></asp:Label>
-                <asp:DropDownList ID="ddlMes" CssClass="form-control" runat="server"></asp:DropDownList>
-            </div>
-            <div class="form-group col-md-3">
-                <asp:Label ID="lblAnio" runat="server" Text="Año"></asp:Label>
-                <asp:DropDownList ID="ddlAnio" CssClass="form-control" runat="server"></asp:DropDownList>
+                <asp:Label ID="lblDescripcionCategoria" runat="server" Text="Categoría"></asp:Label>
+                <asp:TextBox ID="txtCategoria" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
         </div>
-        
     </div>
     <div class="form-group">
         <asp:Button ID="btnGrabar" CssClass="btn btn-primary " runat="server" Text="Grabar" OnClick="btnGrabar_Click" />
