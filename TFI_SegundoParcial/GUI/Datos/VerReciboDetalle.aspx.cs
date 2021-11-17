@@ -69,7 +69,7 @@ namespace GUI.Datos
                         string totalACobrar = "Total a Cobrar: $ " + empRec.Recibo.MontoTotal.ToString("N2") + "\r\n";
 
                         DataTable dt = GetDataTable(grvEmpleadoRecibo);
-                        ReportePDF.GuardarPDF(tmpPath + @"\" + filename, empRec.Empleado.ToString(), periodo, datosEmp, dt, totalACobrar, "Pág. {0} de {1}");
+                        ReportePDF.GuardarPDF(tmpPath + filename, empRec.Empleado.ToString(), periodo, datosEmp, dt, totalACobrar, "Pág. {0} de {1}");
                         //Response.Redirect("~/DownloadFile.ashx?filename=" + filename);
                     }
                 }

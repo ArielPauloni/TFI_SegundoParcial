@@ -112,7 +112,7 @@ public class ReportePDF
             }
             //*****************************************************//
             document.Close();
-            System.Diagnostics.Process.Start("chrome.EXE", filePath);
+            System.Diagnostics.Process.Start("chrome.EXE", Uri.EscapeDataString(filePath));
         }
         catch (Exception)
         {
